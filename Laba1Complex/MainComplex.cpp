@@ -5,8 +5,14 @@ int main() {
         Complex a;
         Complex b;
 
-        Input(a);
-        Input(b);
+        try {
+            a.ReadComplex();
+            b.ReadComplex();
+        }
+        catch (const std::invalid_argument& e) {
+            std::cout << e.what() << "\n";
+            return 1;
+        }
 
         std::cout << "\nResults:\n";
         std::cout << "a + b = " << (a + b) << "\n";
@@ -30,7 +36,7 @@ int main() {
         std::cout << "a == b: " << (a == b ? "true" : "false") << "\n";
         std::cout << "a != b: " << (a != b ? "true" : "false") << "\n";
         std::cout << "abs(a) = " << a.Abs() << "\n";
-        std::cout << "a = " << (a+=5) << "\n";
+        std::cout << "a = " << (a += 5) << "\n";
         std::cout << "a = " << (a *= 5) << "\n";
         std::cout << "a * ~a = " << a.MultiplyByConjugate() << "\n";
         int32_t power{};
