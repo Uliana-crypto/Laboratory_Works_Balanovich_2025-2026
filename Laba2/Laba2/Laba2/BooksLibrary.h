@@ -5,14 +5,7 @@
 #include <string>
 #include <fstream>
 #include <windows.h>
-
-struct Book {
-	size_t UDK;
-	std::string Author;
-	std::string Title;
-	size_t Year;
-	size_t Count;
-};
+#include "BookStruct.h"
 
 class BookList {
 private:
